@@ -13,7 +13,7 @@ class Stash(AtlassianRestAPI):
 
     def project(self, key):
         url = '/rest/api/1.0/projects/{0}'.format(key)
-        return self.get(url)['values']
+        return self.get(url)
 
     def project_users(self, key, limit=99999):
         url = '/rest/api/1.0/projects/{key}/permissions/users?limit={limit}'.format(key=key, limit=limit)
