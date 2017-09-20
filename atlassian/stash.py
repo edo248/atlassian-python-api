@@ -7,8 +7,9 @@ log = logging.getLogger('atlassian.stash')
 
 class Stash(AtlassianRestAPI):
 
-    def project_list(self):
-        return self.get('/rest/api/1.0/projects')['values']
+    def project_list(self, limit=99999):
+        url = '/rest/api/1.0/projects?limit={limit}'.format(limit=limit)
+        return self.get(url)['values']
 
     def project(self, key):
         url = '/rest/api/1.0/projects/{0}'.format(key)
